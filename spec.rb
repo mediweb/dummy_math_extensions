@@ -8,6 +8,24 @@ require 'minitest/reporters'
 reporter_options = { color: true }
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
+describe "Math.finite_log" do
+  it "returns 0 for 1" do
+    assert_equal 0, Math.finite_log(1)
+  end
+
+  it "returns 1 for e" do
+    assert_equal 1, Math.finite_log(Math::E)
+  end
+
+  it "raises Math::DomainError for negative values" do
+    -> { Math.finite_log(-1) }.must_raise Math::DomainError
+  end
+
+  it "prevents returning -Infinity" do
+    -> { Math.finite_log(0) }.must_raise ArgumentError
+  end
+end
+
 describe "Math.finite_log2" do
   it "returns 0 for 1" do
     assert_equal 0, Math.finite_log2(1)
