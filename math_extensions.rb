@@ -11,6 +11,7 @@ module Math
     self.finite_logn(x, 10)
   end
 
+  private
   def self.finite_logn(x, n)
     raise ArgumentError, 'would result in -Infinity' if x == 0
     raise ArgumentError, 'would result in Infinity' if x == Float::INFINITY
