@@ -1,14 +1,14 @@
 module Math
+  def self.method_missing(name, *args, &block)
+    if name.to_s =~ /^finite_log(\d+)$/
+      self.finite_logn(args[0], $1.to_i)
+    else
+      super
+    end
+  end
+
   def self.finite_log(x)
     self.finite_logn(x, Math::E)
-  end
-
-  def self.finite_log2(x)
-    self.finite_logn(x, 2)
-  end
-
-  def self.finite_log10(x)
-    self.finite_logn(x, 10)
   end
 
   private
