@@ -24,6 +24,10 @@ describe "Math.finite_log" do
   it "prevents returning -Infinity" do
     -> { Math.finite_log(0) }.must_raise ArgumentError
   end
+
+  it "prevents returning Infinity" do
+    -> { Math.finite_log(Float::INFINITY) }.must_raise ArgumentError
+  end
 end
 
 describe "Math.finite_log2" do
@@ -41,6 +45,10 @@ describe "Math.finite_log2" do
 
   it "prevents returning -Infinity" do
     -> { Math.finite_log2(0) }.must_raise ArgumentError
+  end
+
+  it "prevents returning Infinity" do
+    -> { Math.finite_log2(Float::INFINITY) }.must_raise ArgumentError
   end
 end
 
@@ -67,5 +75,9 @@ describe "Math.finite_log10" do
 
   it "prevents returning -Infinity" do
     -> { Math.finite_log10(0) }.must_raise ArgumentError
+  end
+
+  it "prevents returning Infinity" do
+    -> { Math.finite_log10(Float::INFINITY) }.must_raise ArgumentError
   end
 end

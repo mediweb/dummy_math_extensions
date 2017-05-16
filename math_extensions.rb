@@ -15,6 +15,9 @@ module Math
     if x == 0
       # Prevent the function from returning -Infinity
       raise ArgumentError, 'would result in -Infinity'
+    elsif x == Float::INFINITY
+      # Prevent the function from returning Infinity
+      raise ArgumentError, 'would result in Infinity'
     end
     Math.log(x, n)
   end
