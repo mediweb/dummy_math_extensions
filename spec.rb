@@ -4,6 +4,9 @@ $:.unshift File.dirname(__FILE__)
 require 'math_extensions'
 
 require 'minitest/autorun'
+require 'minitest/reporters'
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
 describe "Math.finite_log10" do
   it "returns 0 for 1" do
