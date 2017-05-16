@@ -28,4 +28,8 @@ describe "Math.finite_log10" do
   it "raises Math::DomainError for negative values" do
     -> { Math.finite_log10(-1) }.must_raise Math::DomainError
   end
+
+  it "prevents returning -Infinity" do
+    -> { Math.finite_log10(0) }.must_raise ArgumentError
+  end
 end
