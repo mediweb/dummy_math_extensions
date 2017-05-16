@@ -12,9 +12,7 @@ module Math
   end
 
   def self.finite_logn(x, n)
-    # Prevent the function from returning -Infinity
     raise ArgumentError, 'would result in -Infinity' if x == 0
-    # Prevent the function from returning Infinity
     raise ArgumentError, 'would result in Infinity' if x == Float::INFINITY
     Math.log(x, n)
   end
